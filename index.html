@@ -2,43 +2,104 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Forkphorus Player</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Proyecto Scratch - Lunzianda Jurs</title>
   <style>
-    html, body {
+    :root {
+      --bg-color: #0f0f0f;
+      --accent-color: #4d97ff;
+      --text-color: #ffffff;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: system-ui, -apple-system, sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
     }
 
     .container {
-      width: 100%;
+      width: 95%;
       max-width: 800px;
-      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: var(--accent-color);
+    }
+
+    .iframe-wrapper {
+      position: relative;
+      width: 100%;
+      /* Proporción estándar de Scratch (480:360) */
+      padding-top: 75%; 
+      background: #000;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      overflow: hidden;
+      border: 2px solid #333;
     }
 
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      border: 0;
+      border: none;
+    }
+
+    .controls-hint {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Ajustes para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.2rem; }
+      .controls-hint { font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <iframe
-      src="https://forkphorus.github.io/embed.html?id=1274240932&auto-start=true"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+    <div class="header">
+      <h1>Proyecto Scratch</h1>
+    </div>
+
+    <div class="iframe-wrapper">
+      <iframe
+        src="https://forkphorus.github.io/embed.html?id=1274240932&auto-start=true&light-content=false"
+        allowfullscreen="true"
+        allowtransparency="true">
+      </iframe>
+    </div>
+
+    <div class="controls-hint">
+      Pulsa la bandera verde para iniciar • Usa pantalla completa para mejor experiencia
+    </div>
   </div>
 
 </body>
 </html>
+
